@@ -25,11 +25,11 @@ app.post('/generate-key-pair', checkApiKey, (req, res) => {
     return res.status(400).send('ID is required');
   }
 
-  const dirPath = path.join('/privkeys', id); // Atualize o caminho para /privkeys
+  const dirPath = path.join('/privkeys', id);
   const privateKeyPath = path.join(dirPath, 'private.pem');
 
   console.log(`Creating directory: ${dirPath}`);
-  
+
   // Cria o diretório se ele não existir
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
@@ -51,7 +51,7 @@ app.post('/generate-key-pair', checkApiKey, (req, res) => {
     }
 
     console.log(`Saving private key to: ${privateKeyPath}`);
-    
+
     // Salva a chave privada
     fs.writeFile(privateKeyPath, privateKey, (err) => {
       if (err) {
