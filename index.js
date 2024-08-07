@@ -8,6 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const GLOBAL_API_KEY = process.env.GLOBAL_API_KEY; // Puxa a chave da variável de ambiente
+const PRIVKEYS_DIR = process.env.PRIVKEYS_DIR || '/privkeys'; // Define o diretório de privkeys
 
 // Middleware para verificar a chave de autorização
 function checkApiKey(req, res, next) {
@@ -25,7 +26,7 @@ app.post('/generate-key-pair', checkApiKey, (req, res) => {
     return res.status(400).send('ID is required');
   }
 
-  const dirPath = path.join('/privkeys', id); // Atualize o caminho para /privkeys
+  const dirPath = path.join(PRIVKEYS_DIR, id); // Usa o diretório de privkeys
   const privateKeyPath = path.join(dirPath, 'private.pem');
 
   console.log(`Creating directory: ${dirPath}`);
