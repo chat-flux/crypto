@@ -1,7 +1,7 @@
-# Use a imagem oficial do Node.js como base
-FROM node:16-alpine AS builder
+# Use a versão mais leve do Node.js
+FROM node:16-alpine
 
-# Defina o diretório de trabalho no contêiner
+# Defina o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
 # Copie o package.json e o package-lock.json
@@ -10,11 +10,11 @@ COPY package*.json ./
 # Instale as dependências
 RUN npm install
 
-# Copie o restante do código da aplicação
+# Copie o restante da aplicação
 COPY . .
 
-# Exponha a porta que a aplicação irá rodar
-EXPOSE 3000
+# Exponha a porta que a aplicação vai usar
+EXPOSE 3003
 
-# Comando para iniciar a aplicação
-CMD ["node", "server.mjs"]
+# Comando para rodar a aplicação
+CMD ["node", "app.js"]
