@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3003
 
 # Comando para rodar a aplicação
-CMD ["node", "app.js"]
+CMD ["node", "index.js"]
