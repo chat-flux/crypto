@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 
 const GLOBAL_API_KEY = process.env.GLOBAL_API_KEY; // Puxa a chave da variável de ambiente
-const PRIVKEYS_DIR = process.env.PRIVKEYS_DIR || '/privkeys'; // Define o diretório de privkeys
+const PRIVKEYS_DIR = process.env.PRIVKEYS_DIR || '/privkeys/privkeys'; // Define o diretório de privkeys
 
 // Middleware para verificar a chave de autorização
 function checkApiKey(req, res, next) {
