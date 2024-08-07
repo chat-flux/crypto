@@ -25,7 +25,7 @@ app.post('/generate-key-pair', checkApiKey, (req, res) => {
     return res.status(400).send('ID is required');
   }
 
-  const dirPath = path.join(__dirname, './privkeys', id);
+  const dirPath = path.join('/privkeys', id); // Atualize o caminho para /privkeys
   const privateKeyPath = path.join(dirPath, 'private.pem');
 
   console.log(`Creating directory: ${dirPath}`);
