@@ -2,7 +2,7 @@
 FROM node:16-alpine
 
 # Defina o diretório de trabalho dentro do contêiner
-WORKDIR /privkeys
+WORKDIR /
 
 # Copie o package.json e o package-lock.json
 COPY package*.json ./
